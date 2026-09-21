@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #f4f6ff;
+  background: #05050e;
+  font-synthesis: none;
+  --cyan: #46e6ff;
+  --pink: #ff58cf;
+  --violet: #9c78ff;
+  --muted: #8e91aa;
+  --panel: rgba(17, 17, 39, .72);
+  --line: rgba(255,255,255,.10);
+}
+
+* { box-sizing: border-box; }
+html, body, #app { margin: 0; width: 100%; min-height: 100%; }
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 70% 15%, rgba(115, 65, 255, .18), transparent 28rem),
+    radial-gradient(circle at 15% 80%, rgba(0, 209, 255, .09), transparent 24rem),
+    #05050e;
+}
+button, input { font: inherit; }
+button { color: inherit; }
+
+.topbar {
+  height: 68px;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 20;
+  top: 0; left: 0; right: 0;
+  background: linear-gradient(180deg, rgba(4,4,14,.94), rgba(4,4,14,.45), transparent);
+  pointer-events: none;
+}
+.brand { font-family: "Space Grotesk", sans-serif; font-weight: 800; letter-spacing: .16em; font-size: 13px; }
+.brand-mark { color: var(--cyan); margin-right: 8px; text-shadow: 0 0 18px var(--cyan); }
+.view-label { color: #74778f; font-size: 10px; letter-spacing: .24em; font-weight: 700; }
+
+#screen-root { padding: 96px 5vw 50px; min-height: 100vh; }
+
+.hero {
+  max-width: 1300px; min-height: 72vh; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 30px;
+}
+.hero-copy { padding: 50px 0; position: relative; z-index: 2; }
+.eyebrow { color: var(--cyan); font-size: 10px; letter-spacing: .28em; font-weight: 800; margin: 0 0 16px; }
+h1, h2, h3, p { margin-top: 0; }
+.hero h1, .section-head h1, .narrow-page h1 {
+  font-family: "Space Grotesk", sans-serif; font-weight: 800; letter-spacing: -.05em;
+}
+.hero h1 { font-size: clamp(55px, 8vw, 110px); line-height: .84; margin-bottom: 30px; }
+.hero h1 span { color: var(--pink); text-shadow: 0 0 35px rgba(255,88,207,.35); }
+.hero-text { max-width: 550px; color: #a8abc0; line-height: 1.75; font-size: 15px; }
+.button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+button { border: 0; cursor: pointer; }
+.primary, .secondary, .ghost {
+  min-height: 46px; padding: 0 22px; border-radius: 7px; font-size: 11px; font-weight: 800; letter-spacing: .13em; transition: .18s ease;
+}
+.primary { color: #070711; background: linear-gradient(90deg, var(--cyan), #b8f7ff); box-shadow: 0 0 25px rgba(70,230,255,.22); }
+.primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(70,230,255,.38); }
+.secondary { color: #f7f7ff; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.045); }
+.secondary:hover { background: rgba(255,255,255,.09); }
+.ghost { background: transparent; color: #999cb4; }
+.feature-line { margin-top: 48px; display: flex; gap: 17px; flex-wrap: wrap; color: #696d84; font-size: 9px; letter-spacing: .15em; }
+.feature-line span { color: var(--pink); }
+
+.hero-visual { min-height: 560px; position: relative; display: grid; place-items: center; }
+.hero-visual::before {
+  content:""; position:absolute; width: 420px; height: 420px; border-radius:50%;
+  background: radial-gradient(circle, rgba(255,70,204,.20), rgba(52,218,255,.08) 38%, transparent 68%);
+  filter: blur(20px);
+}
+.orbit { position:absolute; width: 390px; height: 390px; border: 1px solid rgba(80,220,255,.22); border-radius: 50%; box-shadow: 0 0 40px rgba(80,220,255,.07); }
+.orbit-a { transform: rotate(25deg) scaleY(.35); }
+.orbit-b { transform: rotate(-32deg) scaleY(.35); border-color: rgba(255,80,205,.24); }
+.core {
+  width: 120px; height: 120px; border-radius: 50%; display:grid; place-items:center; font-size: 42px;
+  background: radial-gradient(circle, #fff 0, #aef7ff 5%, #6ceaff 16%, rgba(70,230,255,.08) 60%, transparent 72%);
+  color: white; text-shadow: 0 0 30px white; animation: float 3.4s ease-in-out infinite;
+}
+.visual-title { position:absolute; bottom: 40px; right: 7%; font-family:"Space Grotesk"; font-size: 72px; line-height:.78; font-weight:800; letter-spacing:-.08em; opacity:.12; text-align:right; }
+@keyframes float { 50% { transform: translateY(-10px) scale(1.03); } }
+
+.quick-grid { max-width: 1300px; margin: 0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.quick-card { text-align:left; padding:24px; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:10px; }
+.quick-card:hover { border-color:rgba(70,230,255,.35); }
+.quick-card strong { display:block; font:700 30px "Space Grotesk"; }
+.quick-card span { color:#777b92; font-size:9px; letter-spacing:.18em; }
+
+.section-head { max-width: 1300px; margin: 0 auto 24px; display:flex; justify-content:space-between; align-items:end; gap:20px; }
+.section-head h1, .narrow-page h1 { font-size:clamp(42px,6vw,76px); line-height:.9; margin-bottom:0; }
+.difficulty-bar { max-width:1300px; margin:0 auto 22px; display:flex; gap:7px; flex-wrap:wrap; }
+.difficulty { padding:9px 14px; border-radius:5px; color:#7f839a; background:rgba(255,255,255,.035); border:1px solid var(--line); font-size:10px; font-weight:800; letter-spacing:.12em; }
+.difficulty.active { color:#061019; background:var(--cyan); border-color:var(--cyan); }
+.song-grid { max-width:1300px; margin:auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(235px,1fr)); gap:14px; }
+.song-card { background:rgba(13,13,31,.76); border:1px solid var(--line); border-radius:10px; overflow:hidden; cursor:pointer; transition:.2s; }
+.song-card:hover { transform:translateY(-4px); border-color:rgba(70,230,255,.35); box-shadow:0 15px 50px rgba(0,0,0,.25); }
+.cover { height:180px; position:relative; overflow:hidden; background:
+  radial-gradient(circle at 72% 22%, hsl(var(--card-hue),100%,70%,.65), transparent 15%),
+  radial-gradient(circle at 24% 80%, hsl(calc(var(--card-hue) + 100),100%,65%,.32), transparent 35%),
+  linear-gradient(135deg, #14142e, #070716 72%); }
+.cover::after { content:""; position:absolute; inset:-50%; background:repeating-linear-gradient(120deg, transparent 0 28px, rgba(255,255,255,.04) 29px 30px); transform:rotate(10deg); }
+.cover-grid { position:absolute; inset:0; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size:24px 24px; transform:perspective(250px) rotateX(52deg) translateY(45px) scale(1.5); transform-origin:bottom; }
+.cover-symbol { position:absolute; right:16px; top:12px; font-size:25px; color:var(--cyan); text-shadow:0 0 20px currentColor; z-index:2; }
+.cover-bpm { position:absolute; left:14px; top:13px; color:#b4f6ff; font-size:9px; font-weight:800; letter-spacing:.16em; z-index:2; }
+.cover-title { position:absolute; left:15px; bottom:14px; right:15px; font:700 24px "Space Grotesk"; line-height:.95; letter-spacing:-.04em; z-index:2; }
+.song-info { padding:14px 15px 6px; display:flex; justify-content:space-between; gap:8px; }
+.song-info h3 { margin:0; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:185px; }
+.song-info p { margin:4px 0 0; color:#777b91; font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:190px; }
+.delete-song { color:#666a80; background:none; font-size:20px; }
+.song-meta { display:flex; justify-content:space-between; padding:8px 15px 15px; color:#777b91; font-size:9px; letter-spacing:.1em; }
+
+.empty-state { grid-column:1/-1; min-height:360px; display:grid; place-items:center; align-content:center; text-align:center; background:rgba(255,255,255,.025); border:1px dashed rgba(255,255,255,.12); border-radius:12px; }
+.empty-icon { font-size:50px; color:var(--cyan); text-shadow:0 0 25px var(--cyan); }
+.empty-state p { color:#7d8097; max-width:420px; }
+
+.narrow-page { max-width:900px; margin:0 auto; padding-top:7vh; }
+.panel { margin-top:25px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:26px; backdrop-filter:blur(18px); }
+.setting { display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid var(--line); color:#c4c6d5; }
+.setting input[type="range"] { width:220px; accent-color:var(--cyan); }
+.setting-note { color:#777b91; font-size:12px; line-height:1.7; padding-top:20px; }
+.credits-panel p { color:#9296aa; line-height:1.7; max-width:650px; }
+.credit-line { display:flex; justify-content:space-between; padding:15px 0; border-top:1px solid var(--line); font-size:11px; }
+.credit-line span { color:#6e728a; letter-spacing:.14em; }
+
+.game-shell { position:fixed; inset:0; z-index:100; background:#03030d; }
+.game-shell.hidden, .hidden { display:none !important; }
+#game-canvas { width:100%; height:100%; display:block; cursor:none; }
+.hud { position:absolute; top:18px; left:50%; transform:translateX(-50%); display:flex; gap:7px; pointer-events:none; }
+.hud-box { min-width:120px; padding:8px 13px; background:rgba(8,8,23,.6); border:1px solid rgba(255,255,255,.1); border-radius:6px; text-align:center; backdrop-filter:blur(10px); }
+.hud-box span { display:block; color:#6f738a; font-size:8px; letter-spacing:.16em; }
+.hud-box strong { display:block; margin-top:3px; font:700 16px "Space Grotesk"; }
+.icon-button { position:absolute; right:20px; top:18px; width:38px; height:38px; border-radius:50%; background:rgba(8,8,23,.6); border:1px solid rgba(255,255,255,.13); font-size:13px; }
+.judgement { position:absolute; left:50%; top:58%; transform:translate(-50%,-50%); font:900 25px "Space Grotesk"; letter-spacing:.14em; pointer-events:none; opacity:0; text-shadow:0 0 22px currentColor; }
+.judgement.show { animation:judge .55s ease-out forwards; }
+@keyframes judge { 0%{opacity:0; transform:translate(-50%,-40%) scale(.75)} 18%{opacity:1} 100%{opacity:0; transform:translate(-50%,-90%) scale(1.12)} }
+.pause-overlay { position:absolute; inset:0; display:grid; place-items:center; background:rgba(2,2,10,.52); backdrop-filter:blur(9px); }
+.pause-panel { width:min(500px,90vw); text-align:center; }
+.pause-panel h2 { font:700 44px "Space Grotesk"; margin-bottom:10px; }
+
+.toast-root { position:fixed; right:20px; bottom:20px; z-index:300; display:grid; gap:8px; }
+.toast { padding:12px 16px; border:1px solid rgba(70,230,255,.24); background:rgba(8,8,23,.92); border-radius:7px; color:#c9fbff; box-shadow:0 0 30px rgba(70,230,255,.08); font-size:12px; animation:toast .2s ease-out; }
+@keyframes toast { from{transform:translateY(8px);opacity:0} }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns:1fr; min-height:auto; padding-top:5vh; }
+  .hero-visual { min-height:300px; }
+  .orbit { width:260px; height:260px; }
+  .quick-grid { grid-template-columns:1fr; }
+  .hud-box { min-width:88px; padding:7px 8px; }
+  .hud-box strong { font-size:13px; }
+}

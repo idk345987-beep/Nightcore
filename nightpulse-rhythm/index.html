@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080817" />
+    <meta name="description" content="NightPulse — a local-first one-handed rhythm game." />
+    <title>NightPulse</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">✦</span> NIGHTPULSE</div>
+        <div id="view-label" class="view-label">HOME</div>
+      </header>
+
+      <main id="screen-root"></main>
+
+      <input id="song-input" type="file" accept="audio/mpeg,audio/wav,audio/ogg,audio/oga,audio/*" hidden />
+
+      <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+      <div id="game-shell" class="game-shell hidden">
+        <canvas id="game-canvas"></canvas>
+        <div class="hud">
+          <div class="hud-box"><span>SCORE</span><strong id="hud-score">0</strong></div>
+          <div class="hud-box"><span>ACCURACY</span><strong id="hud-accuracy">100.00%</strong></div>
+          <div class="hud-box"><span>COMBO</span><strong id="hud-combo">0</strong></div>
+        </div>
+        <button id="game-pause" class="icon-button" aria-label="Pause">Ⅱ</button>
+        <div id="judgement" class="judgement"></div>
+        <div id="pause-overlay" class="pause-overlay hidden">
+          <div class="panel pause-panel">
+            <p class="eyebrow">PAUSED</p>
+            <h2 id="pause-title">NightPulse</h2>
+            <div class="button-row">
+              <button id="resume-button" class="primary">RESUME</button>
+              <button id="restart-button" class="secondary">RESTART</button>
+              <button id="quit-button" class="ghost">QUIT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
